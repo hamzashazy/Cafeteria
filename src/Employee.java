@@ -1,7 +1,9 @@
 public class Employee {
-    static empnode head=null;
-    static empnode tail=null;
-    public void insertmenu(String name, int price, int code)
+    String username="emp";
+    String pswd="1234";
+    empnode head=null;
+    empnode tail=null;
+    public void insertItem(String name, int price, int code)
     {
         empnode newnode = new empnode(name,price,code);
         if(head==null)
@@ -16,7 +18,37 @@ public class Employee {
             head=head.prev;
         }
     }
-    public static int Search(int code)
+    public void deleteProduct(int code)
+    {
+        empnode s= head.next;
+        if(head==null)
+        {
+            System.out.println("List is already Empty");
+        }
+        if(head.code==code)
+        {
+            head=head.next;
+            head.prev=null;
+        }
+        else if(tail.code==code)
+        {
+            tail=tail.prev;
+            tail.next=null;
+        }
+        else
+        {
+        while(s.next!=null)
+        {
+            if(s.code==code)
+            {
+                s.prev.next=s.next;
+                s.next.prev=s.prev;
+            }
+            s=s.next;
+        }
+    }
+    }
+    public int Search(int code)
     {
         empnode s = head;
         while(s!=null)

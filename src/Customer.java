@@ -16,6 +16,12 @@ public class Customer {
         head=head.prev;
     }
     }
+    public void submitOrder()
+    {
+        System.out.println("Order No "+tail.orderNo+" Submited Successfully");
+        tail=tail.prev;
+        tail.next=null;
+    }
     public void viewOrder()
     {
         System.out.println("***************Orders***************");
@@ -23,9 +29,9 @@ public class Customer {
         Cusnode s= tail;
     while(s.prev!=null)
     {
-        System.out.println(s.name+"         "+s.contact+"           "+s.orderNo+"           "+s.bill);
+        System.out.println(s.name+"              "+s.contact+"             "+s.orderNo+"             "+s.bill);
         s=s.prev;
     }
-    System.out.println(s.name+"         "+s.contact+"           "+s.orderNo+"           "+s.bill);
+    System.out.println(s.name+"              "+s.contact+"             "+s.orderNo+"              "+s.bill);
     }
 }
